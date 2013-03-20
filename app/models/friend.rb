@@ -6,9 +6,14 @@ class Friend < ActiveRecord::Base
   after_create :create_new_friend 
 
   def create_new_friend
-  	if Friend.find_by_u_id1(self.u_id2)==nil
-  		Friend.create u_id1: self.u_id2, u_id2: self.u_id1
+  	tuples = Friend.find_all_by_u_id1(self.u_id2)
+  	tuples.each do |tuple|
+  		if tuple.u_id2 == self.u_id1
+  			return
+  		end
   	end
+	Friend.create u_id1: self.u_id2, u_id2: self.u_id1
+
   end
 
 end
