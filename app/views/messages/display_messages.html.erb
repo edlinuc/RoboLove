@@ -1,0 +1,46 @@
+<h1><%=@sent%> Messages via <%=@medium%> for <%= @relation_name %> </h1>
+<!-- <select>
+  <option name="sent" value="1">Sent Messages</option>
+  <option name="sent" value="0">Queued Messages</option>
+</select>
+<select>
+  <option name="medium_id" value="1">Phone</option>
+  <option name="medium_id" value="0">Email</option>
+</select> -->
+<%= link_to "Unsent Emails", "display_messages?sent=0&medium_id=0&relation_id=#{@id}", :remote => true %>|
+<%= link_to "Sent Emails", "display_messages?sent=1&medium_id=0&relation_id=#{@id}", :remote => true %>|
+<%= link_to "Unsent Texts", "display_messages?sent=0&medium_id=1&relation_id=#{@id}", :remote => true %>|
+<%= link_to "Sent Texts", "display_messages?sent=1&medium_id=1&relation_id=#{@id}", :remote => true %>
+<!-- 
+<% form_for 'display_messages', :remote => true do |f| %>
+    <%= f.select :sent, [['unsent', 1], ['sent', 0]], {}, :onchange => 'this.form.submit()' %>
+<% end %>
+ -->
+<table style="text-align:center;"> 
+	<tr>
+<% if @medium!="text" %>
+	<th style="min-width:200px;">Subject</th>
+<%end%>
+	<th style="min-width:200px;">Text</th><th style="min-width:200px;">Time</th>
+</tr>
+<% @relation_messages.each do |message| %>
+	 <tr class="items" style="margin:20px;border:1px gray solid;padding:10px;">
+
+		<td><% if @medium!="text" %>
+		 		<%= message.subject %>
+			<%end%>
+		</td>
+		<td>
+			<%= message.body %>			
+		</td>
+		<td>
+			<%= message.intended_date %>			
+		</td>
+		<%if message.sent== false %>
+		<td style="float:right;">
+			<%= link_to "Delete message", message_url(message), method: 'delete'%>
+		</td>
+		<% end %>
+	 </tr>
+<% end %>
+</table>

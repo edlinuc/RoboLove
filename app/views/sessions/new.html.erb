@@ -1,0 +1,11 @@
+<h1>Sign In</h1>
+<% if flash[:notice] %>
+    <p style="color:red;"><%= flash[:notice] %></p>
+  <% end %>
+
+<%= form_tag "/sessions/create" do %>
+  <%= label_tag :email %><%= text_field_tag :email %><br>
+  <%= label_tag :password %><%= password_field_tag :password %><br>
+  <%= submit_tag "Submit" %>
+
+<% end %>

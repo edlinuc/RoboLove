@@ -1,0 +1,20 @@
+$('h1').html("<%= @sent %> Messages via <%= @medium %> for <%= @relation_name %>");
+
+$('.items').remove(); 
+<% @relation_messages.each do |message| %>
+	var newElem = "<tr class=\"items\" style=\"border:1px gray solid;\"><td>";
+		<% if @medium!="text" %>
+		 	  newElem += "<%= message.subject %>";
+		<%end%>
+		newElem += "</td><td>";
+		newElem +=	"<%= message.body %>";
+		newElem += "</td><td>";
+		newElem +=	"<%= message.intended_date.to_s %>";
+		newElem += "</td>";
+		<% if message.sent==false %>
+		newElem += "<td><%= escape_javascript(link_to 'Delete message', message_url(message), method: 'delete')%></td>";
+		<% end %>
+		newElem += "</tr>";
+	 $('table').append(newElem);
+<% end %>
+

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  text: MyString
+  from_uid: 1
+  to_uid: 1
+
+two:
+  text: MyString
+  from_uid: 1
+  to_uid: 1

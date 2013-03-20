@@ -1,0 +1,12 @@
+$('#popup').slideUp();
+
+$('body').append('<div id="sent">Message sent</div>');
+$('#sent').animate({
+    opacity: 1,
+  }, 2000, function() {
+  	$('#sent').animate({
+    opacity: 0,
+  }, 2000, function() {
+  	$('#sent').remove();
+  });
+  });

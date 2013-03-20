@@ -1,0 +1,23 @@
+<h1>Inbox</h1>
+
+<table id='msg'>
+<% if @user_messages.empty? %>
+  <h4> You do not have any messages in the inbox. </h4>
+<% else %>
+  <tr>
+    <th>Text</th>
+    <th>From</th> 
+    <th></th> 
+  </tr>
+  <% @user_messages.each do |user_message| %>
+    <tr>
+      <td><%= user_message.text %></td>
+      <td><%= User.find_by_id(user_message.from_uid).name %></td> 
+      <td><%= link_to 'Delete', user_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+

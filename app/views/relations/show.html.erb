@@ -1,0 +1,158 @@
+
+
+<p id="notice"><%= notice %></p>
+<h3> Here is some helpful information about your relationship </h3>
+ <!--<style type="text/css">
+#ProfilePage
+{
+    /* Move it off the top of the page, then centre it horizontally */
+    margin: 50px auto;
+    width: 635px;
+
+/* For visibility. Delete me */
+border: 1px solid red;
+}
+
+
+
+
+#Info
+{
+    width: 400px;
+    text-align: center;
+
+    /* Move it to the right */
+    float: right;
+
+/* For visibility. Delete me */
+border: 1px solid blue;
+}
+
+#Info strong
+{
+    /* Give it a width */
+    display: inline-block;
+    width: 100px;
+
+/* For visibility. Delete me */
+border: 1px solid orange;
+}
+
+#Info span
+{
+    /* Give it a width */
+    display: inline-block;
+    width: 250px;
+
+/* For visibility. Delete me */
+border: 1px solid purple;
+}
+</style>
+
+<div id="ProfilePage">
+
+    <div id="Info">
+        <p>
+            <strong>Name:</strong>
+            <span> <%= @relation.name %></span>
+        </p>
+        <p>
+            <strong>Email:</strong>
+            <span><%= @relation.email %></span>
+        </p>
+        <p>
+            <strong>Birthdate:</strong>
+            <span><%= @relation.birthdate %></span>
+        </p>
+        <p>
+            <strong>Anniversary:</strong>
+            <span><%= @relation.anniversary %></span>
+        </p>
+        <p>
+            <strong>Intensity:</strong>
+            <span><%= @relation.intensity %></span>
+        </p>
+        <p>
+            <strong>Eye color:</strong>
+            <span>  <%= @relation.eye_color %></span>
+        </p>
+
+        <p>
+            <strong>Hair color:</strong>
+            <span><%= @relation.hair_color %></span>
+        </p>
+
+        <p>
+            <strong>Height:</strong>
+            <span><%= @relation.height %></span>
+        </p>
+
+        <p>
+            <strong>Weight:</strong>
+            <span><%= @relation.weight %></span>
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            <span><%= @relation.phone %></span>
+        </p>
+<%= link_to 'Edit', edit_relation_path(@relation) %> |
+<%= link_to 'Back', relations_path %>
+    </div>
+    <div style="clear:both"></div>
+</div>
+    Needed because other elements inside ProfilePage have floats -->
+
+
+
+
+
+<p>
+  <b>Name:</b>
+  <%= @relation.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @relation.email %>
+</p>
+
+<p>
+  <b>Birthdate:</b>
+  <%= @relation.birthdate %>
+</p>
+
+<p>
+  <b>Anniversary:</b>
+  <%= @relation.anniversary %>
+</p>
+
+<p>
+  <b>Eye color:</b>
+  <%= @relation.eye_color %>
+</p>
+
+<p>
+  <b>Hair color:</b>
+  <%= @relation.hair_color %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @relation.height %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @relation.weight %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @relation.phone %>
+</p>
+
+
+<%= link_to 'Edit', edit_relation_path(@relation) %> |
+<%= link_to 'Back', user_url(session[:user_id]) %>
+

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+
+<%if session[:user_id].to_i == params[:id].to_i %>
+<H1>Your Relations </H1>
+<ul><% @user.relations.each do |relation| %>
+	<li><h3><%= relation.name %></h3><div style="float:right; font-size:11px;font-weight:lighter;"><span> <%= link_to "Relationship Information", relation_url(relation.id)%> </span> | <span><%= link_to "Message Information", "/messages/display_messages?sent=0&medium_id=0&relation_id=#{relation.id}"%> </span> | <span> <%= link_to "Create a new message", "/messages/new/#{@user.id}/#{relation.id}" %> </span> | <span> <%= link_to "Breakup", relation_url(relation), method: 'delete', confirm:'Are you sure you want to breakup?  Dont worry we will take care of sending the breakup email' %> </span></div></li>
+	<hr style="clear:both; border-color:lightgray">
+<% end %>
+</ul>
+
+
+
+<span> <%= link_to "Add a relationship", new_relation_url %></span> 
+
+
+<H1>Your Friends </H1>
+<ul><% @friends1.each do |friend| %>
+	<li><h3><%= friend.name %></h3><div style="float:right; font-size:11px;font-weight:lighter;">
+		<span> <%= link_to "Friend Information", user_url(friend.id)%></span> | 
+		<span> <%= link_to "Send a Message", new_user_message_url(friend.id), remote: true %></span></div></li>
+	<hr style="clear:both; border-color:lightgray">
+<% end %>
+</ul>
+
+<span> <%= link_to "Add a friend", users_url %></span> 
+
+<%else %>
+<h3> Name: <%= @user.name %> </h3>
+<h3> Email: <%= @user.email %> </h3>
+<% end %>

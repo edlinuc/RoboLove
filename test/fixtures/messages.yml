@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  medium_id: 1
+  intended_date: 2013-03-02
+  subject: MyString
+  body: MyString
+  user_id: 1
+  relation_id: 1
+  sent: false
+
+two:
+  medium_id: 1
+  intended_date: 2013-03-02
+  subject: MyString
+  body: MyString
+  user_id: 1
+  relation_id: 1
+  sent: false

@@ -1,0 +1,61 @@
+<%= form_for(@relation) do |f| %>
+  <% if @relation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relation.errors.count, "error") %> prohibited this relation from being saved:</h2>
+
+      <ul>
+      <% @relation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :birthdate %><br />
+    <%= f.date_select :birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label :anniversary %><br />
+    <%= f.date_select :anniversary %>
+  </div>
+  <div class="field">
+    <%= f.label :intensity %><br />
+    <%= f.select :intensity, [['Ice Cold',1],['Just Getting Started',2],['Heating up',4],['On Fire',5]],{} %>
+  </div>
+  <div class="field">
+    <%= f.label :eye_color %><br />
+    <%= f.select :eye_color, %w[Black Brown Blue Orange Red Pink], {}%>
+  </div>
+  <div class="field">
+    <%= f.label :hair_color %><br />
+    <%= f.select :hair_color, %w[Black Brown Blond Red Yellow Orange], {}  %>
+  </div>
+  <div class="field">
+    <%= f.label "Height (Feet)" %><br />
+    <%= f.number_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label "Weight(Pounds)" %><br />
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field" style="display:none;">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.number_field :phone %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
